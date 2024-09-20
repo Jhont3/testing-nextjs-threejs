@@ -1,6 +1,8 @@
 "use client"
 import * as THREE from 'three';
 import { useEffect } from 'react';
+import { CanvasCube } from '../../components/';
+
 
 export default function Home() {
   useEffect(() => {
@@ -49,6 +51,6 @@ export default function Home() {
 
   return <div className=" font-[family-name:var(--font-geist-sans)]">
     <h1>asdas</h1>
-    asdas
+    <CanvasCube/>
   </div>;
 }
