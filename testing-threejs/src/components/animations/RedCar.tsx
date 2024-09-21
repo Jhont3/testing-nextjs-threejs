@@ -6,7 +6,7 @@ Title: the-red-car */
 
 import * as THREE from 'three'
 import React, { useEffect, useRef } from 'react'
-import { useGLTF, useAnimations } from '@react-three/drei'
+import { useGLTF, useAnimations, Html } from '@react-three/drei'
 import { GLTF } from 'three-stdlib'
 
 type GLTFResult = GLTF & {
@@ -35,7 +35,14 @@ export function Model(props: JSX.IntrinsicElements['group']) {
     }
   }, [actions, names])
 
+  const handleAnimate = () => {
+    if (actions && actions["running"]) {
+      actions["running"].reset().fadeIn(0.5).play()
+    }
+  }
+
   return (
+    <>
     <group ref={group} {...props} dispose={null}>
       <group name="Sketchfab_Scene">
         <group name="Sketchfab_model" rotation={[-Math.PI / 2, 0, 0]} scale={5.043}>
@@ -95,6 +102,12 @@ export function Model(props: JSX.IntrinsicElements['group']) {
         </group>
       </group>
     </group>
+    <Html position={[0, 0, 0]}>
+        <button onClick={handleAnimate}>Change Animation</button>
+    </Html>
+    </>
+   
+
   )
 }
 

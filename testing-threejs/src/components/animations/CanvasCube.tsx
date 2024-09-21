@@ -1,6 +1,6 @@
 import { OrbitControls, PerspectiveCamera } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
-// import { RotatingCube } from "./RotatingCube";
+import { RotatingCube } from "./RotatingCube";
 import { Suspense } from "react";
 import CanvasLoader from "../common/CanvasLoader";
 import { Model } from "./RedCar";
@@ -10,9 +10,8 @@ export const CanvasCube = () => {
     <div className="w-80">
 
         <Canvas >
-
             <Suspense fallback={<CanvasLoader/>}>
-            
+
             <PerspectiveCamera makeDefault position={[0,0,30]}/>
             <Model />
 
@@ -24,11 +23,11 @@ export const CanvasCube = () => {
                 />
             <ambientLight intensity={0.5} />
             <color attach="background" args={["#F0F0F0"]} />
-            {/* <RotatingCube /> */}
+            <RotatingCube />
 
             </Suspense>
         </Canvas>
-        
+
     </div>
   );
 };
