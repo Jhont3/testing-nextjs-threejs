@@ -35,6 +35,12 @@ export function Model(props: JSX.IntrinsicElements['group']) {
     }
   }, [actions, names])
 
+  useEffect(() => {
+    console.log(nodes);
+    console.log(Object.keys(nodes));
+  }, [nodes]);
+
+
   const handleAnimate = () => {
     if (actions && actions["running"]) {
       actions["running"].reset().fadeIn(0.5).play()
